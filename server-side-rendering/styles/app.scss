@@ -1,0 +1,28 @@
+#main {
+  background-color: lightyellow;
+}
+.row {
+  min-height: 400px;
+}
+
+.main-content {
+  background-color: lightseagreen;
+  min-height: 200px;
+  padding-top: 15px;
+}
+
+.sidebar {
+  background-color: lightcoral;
+  min-height: 80px;
+  padding-top: 15px;
+}
+
+.post {
+  margin-bottom: 5px;
+  background-color: lightblue
+}
+
+.user {
+  margin-bottom: 5px;
+  background-color: lightgray
+}
