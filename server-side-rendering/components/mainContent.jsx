@@ -26,7 +26,7 @@ class MainContent extends Component {
           posts: _.take(response.data, 8),
         });
       });
-    }, 2000);
+    }, 3000);
   }
 
   render() {

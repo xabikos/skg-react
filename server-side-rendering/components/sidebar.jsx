@@ -25,7 +25,7 @@ class Sidebar extends Component {
           users: response.data,
         });
       });
-    }, 4000);
+    }, 5000);
   }
 
   render() {

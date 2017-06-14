@@ -4,4 +4,6 @@ import React from 'react';
 import App from './components/app';
 import './styles/app.scss';
 
-ReactDOM.render(<App />, document.getElementById('main'));
+setTimeout(() => {
+  ReactDOM.render(<App />, document.getElementById('main'));
+}, 5000);
