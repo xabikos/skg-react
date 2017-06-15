@@ -11,21 +11,19 @@ class Sidebar extends Component {
 
     this.state = {
       loadingData: false,
-      users: [],
+      users: props.users,
     };
   }
 
   componentDidMount() {
     this.setState({ loadingData: true });
-    setTimeout(() => {
-      axios.get('/users')
-      .then((response) => {
-        this.setState({
-          loadingData: false,
-          users: response.data,
-        });
+    axios.get('/users')
+    .then((response) => {
+      this.setState({
+        loadingData: false,
+        users: response.data,
       });
-    }, 5000);
+    });
   }
 
   render() {
@@ -39,7 +37,7 @@ class Sidebar extends Component {
       ) :
       (
         <div>
-          {this.state.users.map(user => <User key={user.id} {...user} />)}
+          {this.state.users && this.state.users.map(user => <User key={user.id} {...user} />)}
         </div>
       )
     );

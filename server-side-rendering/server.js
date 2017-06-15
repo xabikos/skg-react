@@ -1,8 +1,12 @@
 import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import _ from 'lodash';
 
 import template from './templates';
 import posts from './data/posts';
 import users from './data/users';
+import App from './components/app';
 
 const app = express();
 
@@ -17,8 +21,9 @@ app.get('/users', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+  const appString = renderToString(<App posts={_.take(posts, 8)} renderedServerSide />);
   res.send(template({
-    body: 'Hello world'
+    body: appString
   }));
 });
 

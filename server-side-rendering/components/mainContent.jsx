@@ -1,5 +1,6 @@
 /* eslint react/no-did-mount-set-state: 0 */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Loader from 'react-loader';
 import axios from 'axios';
 import _ from 'lodash';
@@ -12,21 +13,19 @@ class MainContent extends Component {
 
     this.state = {
       loadingData: false,
-      posts: [],
+      posts: props.posts,
     };
   }
 
   componentDidMount() {
     this.setState({ loadingData: true });
-    setTimeout(() => {
-      axios.get('/posts')
-      .then((response) => {
-        this.setState({
-          loadingData: false,
-          posts: _.take(response.data, 8),
-        });
+    axios.get('/posts')
+    .then((response) => {
+      this.setState({
+        loadingData: false,
+        posts: _.take(response.data, 20),
       });
-    }, 3000);
+    });
   }
 
   render() {
@@ -40,11 +39,15 @@ class MainContent extends Component {
       ) :
       (
         <div>
-          {this.state.posts.map(post => <Post key={post.id} {...post} />)}
+          {this.state.posts && this.state.posts.map(post => <Post key={post.id} {...post} />)}
         </div>
       )
     );
   }
 }
+
+MainContent.propTypes = {
+  posts: PropTypes.array,
+};
 
 export default MainContent;
