@@ -1,4 +1,4 @@
-export default ({ body }) => `
+export default ({ body, initialState  }) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -6,6 +6,7 @@ export default ({ body }) => `
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+      <script>window.__APP_INITIAL_STATE__ = ${initialState}</script>
       <title>SKG React meetup</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
       <link rel="stylesheet" href="/public/styles.css" />

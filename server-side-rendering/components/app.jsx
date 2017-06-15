@@ -7,7 +7,6 @@ import Sidebar from './sidebar';
 const App = props => (
   <div className="container">
     <h1>Example application to demonstrate client side rendering after fetching data</h1>
-    {props.renderedServerSide ? <h5>Rendered Server Side</h5> : <h5>Rendered client Side</h5>}
     <div className="row align-items-center justify-content-md-center">
       <div className="col main-content">
         <MainContent posts={props.posts} />
@@ -20,7 +19,6 @@ const App = props => (
 );
 
 App.propTypes = {
-  renderedServerSide: PropTypes.bool,
   posts: PropTypes.array,
   users: PropTypes.array,
 };

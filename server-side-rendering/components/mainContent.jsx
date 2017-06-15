@@ -23,7 +23,7 @@ class MainContent extends Component {
     .then((response) => {
       this.setState({
         loadingData: false,
-        posts: _.take(response.data, 20),
+        posts: _.take(response.data, 12),
       });
     });
   }

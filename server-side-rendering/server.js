@@ -21,9 +21,11 @@ app.get('/users', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  const appString = renderToString(<App posts={_.take(posts, 8)} renderedServerSide />);
+  const initialState = { posts: _.take(posts, 8) };
+  const appString = renderToString(<App posts={initialState.posts} />);
   res.send(template({
-    body: appString
+    body: appString,
+    initialState: JSON.stringify(initialState),
   }));
 });
 
