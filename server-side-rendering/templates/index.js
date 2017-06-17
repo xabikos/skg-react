@@ -1,4 +1,4 @@
-export default ({ body, initialState  }) => `
+export default ({ body, initialState }) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>

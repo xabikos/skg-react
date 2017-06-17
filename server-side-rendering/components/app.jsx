@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 
 import MainContent from './mainContent';
 import Sidebar from './sidebar';
@@ -23,4 +24,8 @@ App.propTypes = {
   users: PropTypes.array,
 };
 
-export default App;
+const mapStateToProps = state => ({
+  posts: state.posts,
+});
+
+export default connect(mapStateToProps)(App);
